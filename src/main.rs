@@ -1,14 +1,19 @@
 mod d01;
+mod d02;
 mod string_error;
 
 use std::time::Instant;
 use string_error::StringError;
 
 fn main() -> Result<(), StringError> {
-    let inputs = vec![read_input_file("./inputs/input_01")?];
+    let inputs = vec![
+        read_input_file("./inputs/input_01")?,
+        read_input_file("./inputs/input_02")?,
+    ];
 
     let t = Instant::now();
     d01::solve(&inputs[0])?;
+    d02::solve(&inputs[1])?;
     let dt = t.elapsed();
 
     println!("Elapsed time for all solutions: {:?}", dt);
