@@ -13,11 +13,17 @@ fn main() -> Result<(), StringError> {
         read_input_file("./inputs/input_03")?,
     ];
 
+    println!("Read all inputs from disk.\n");
+
+    let mut s = String::new();
+
     let t = Instant::now();
-    d01::solve(&inputs[0])?;
-    d02::solve(&inputs[1])?;
-    d03::solve(&inputs[2])?;
+    s += &d01::solve(&inputs[0])?;
+    s += &d02::solve(&inputs[1])?;
+    s += &d03::solve(&inputs[2])?;
     let dt = t.elapsed();
+
+    println!("{}", s);
 
     println!("Elapsed time for all solutions: {:?}", dt);
 

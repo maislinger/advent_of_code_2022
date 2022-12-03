@@ -1,6 +1,6 @@
 use crate::string_error::StringError;
 
-pub fn solve(input: &str) -> Result<(), StringError> {
+pub fn solve(input: &str) -> Result<String, StringError> {
     let mut current_calories: u64 = 0;
     let mut max_calories = [0u64; 3];
 
@@ -17,10 +17,10 @@ pub fn solve(input: &str) -> Result<(), StringError> {
         current_calories += v;
     }
 
-    println!("Day 01/01: {}", max_calories[0]);
-    println!("Day 01/02: {}", max_calories.iter().sum::<u64>());
+    let mut result = format!("Day 01/01: {}\n", max_calories[0]);
+    result += &format!("Day 01/02: {}\n", max_calories.iter().sum::<u64>());
 
-    Ok(())
+    Ok(result)
 }
 
 fn insert(max_calories: &mut [u64; 3], new_value: u64) {

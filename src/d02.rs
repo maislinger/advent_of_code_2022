@@ -1,6 +1,6 @@
 use crate::string_error::StringError;
 
-pub fn solve(input: &str) -> Result<(), StringError> {
+pub fn solve(input: &str) -> Result<String, StringError> {
     let mut points_part_one = 0;
     let mut points_part_two = 0;
 
@@ -22,10 +22,9 @@ pub fn solve(input: &str) -> Result<(), StringError> {
         points_part_two += self_move_part_two.points(&other_move);
     }
 
-    println!("Day 02/01: {}", points_part_one);
-    println!("Day 02/02: {}", points_part_two);
-
-    Ok(())
+    let mut result = format!("Day 02/01: {}\n", points_part_one);
+    result += &format!("Day 02/02: {}\n", points_part_two);
+    Ok(result)
 }
 
 #[derive(Clone, Copy, Eq, PartialEq)]

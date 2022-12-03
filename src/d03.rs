@@ -1,6 +1,6 @@
 use crate::string_error::StringError;
 
-pub fn solve(input: &str) -> Result<(), StringError> {
+pub fn solve(input: &str) -> Result<String, StringError> {
     let mut sum_priority = 0;
     let mut sum_badge_priority = 0;
     let mut occuring_items = [true; 52];
@@ -16,10 +16,9 @@ pub fn solve(input: &str) -> Result<(), StringError> {
         }
     }
 
-    println!("Day 03/01: {}", sum_priority);
-    println!("Day 03/02: {}", sum_badge_priority);
-
-    Ok(())
+    let mut result = format!("Day 03/01: {}\n", sum_priority);
+    result += &format!("Day 03/02: {}\n", sum_badge_priority);
+    Ok(result)
 }
 
 fn compute_counts(rucksack: &str) -> Result<[[u64; 2]; 52], StringError> {
