@@ -19,7 +19,6 @@ pub fn solve(input: &str) -> Result<String, StringError> {
 
     let mut result = format!("Day 01/01: {}\n", max_calories[0]);
     result += &format!("Day 01/02: {}\n", max_calories.iter().sum::<u64>());
-
     Ok(result)
 }
 
