@@ -2,6 +2,9 @@ mod d01;
 mod d02;
 mod d03;
 mod d04;
+mod d05;
+mod d06;
+mod d07;
 mod string_error;
 
 use std::time::Instant;
@@ -13,6 +16,9 @@ fn main() -> Result<(), StringError> {
         read_input_file("./inputs/input_02")?,
         read_input_file("./inputs/input_03")?,
         read_input_file("./inputs/input_04")?,
+        read_input_file("./inputs/input_05")?,
+        read_input_file("./inputs/input_06")?,
+        read_input_file("./inputs/input_07")?,
     ];
 
     println!("Read all inputs from disk.\n");
@@ -24,6 +30,9 @@ fn main() -> Result<(), StringError> {
     s += &d02::solve(&inputs[1])?;
     s += &d03::solve(&inputs[2])?;
     s += &d04::solve(&inputs[3])?;
+    s += &d05::solve(&inputs[4])?;
+    s += &d06::solve(&inputs[5])?;
+    s += &d07::solve(&inputs[6])?;
     let dt = t.elapsed();
 
     println!("{}", s);
